@@ -1,9 +1,77 @@
+
 git init 初始化目录
 git add <file> 添加文件
+git rm <file> 删除文件
 git commit -m '注释' 提交
-git restore <file> 从缓存区还原本地已删除文件
+git restore <file> 从缓存区还原本地文件
+git restore --staged <file> 取消已加入暂存的文件
+git reset --hard HEAD^ 还原至上一个版本
 git reset --hard <422302e> 还原到指定版本
 git log 	查看当前log
 git reflog  查看所有改动log
 git checkout <file> 检出文件
+git ls-files 查看已加入git中的文件
 
+
+
+分支：
+git branch branchName 创建分支
+git checkout branchName 切换分支
+git checkout -b lead01  origin/lead01 拉取远程分支，并在本地创建分支
+git branch 查看所有分支
+git branch -m left01 leaf01 更改分支名字
+git branch -d branchName 删除分支
+
+git branch -a 查看所有分支
+
+git push origin :lead01 删除远程分支（添加 冒号）
+
+git pull 从远程获取代码并合并本地的版本
+
+
+合并：
+git merge leaf01 *在主干合并分支
+
+
+推送：
+git remote -v 查看推送地址
+git remote add origin https://github.com/yongfuGH/git1.git 绑定远程仓库
+
+git push -u origin master 将本地的master分支推送到origin主机，同时指定origin为默认主机，后面可是呀 git push 不加参数直接继续推送
+git push 推送
+
+git push origin lead01 将lead01分支推送到origin（远程）主机的对应分支
+
+git clone https://github.com/yongfuGH/git1.git 克隆项目
+
+ssh-keygen -t rsa -C "your content" 秘钥生成
+
+ssh -T git@github.com
+ssh -T -v git@github.com 查看具体信息 debug
+
+
+.ssh/config 设置，用来解决无法连接问题
+Host github.com
+User <user_email>
+Hostname ssh.github.com
+PreferredAuthentications publickey
+IdentityFile ~/.ssh/id_rsa
+Port 443
+
+标签：
+git tag 查看标签（版本）
+git tag tag_name 标签
+git tag -a v2.0 -m '修改bug' 创建标签并添加注释
+git push origin v1.0 推送指定标签
+git push origin --tags 推送所有未推送的标签
+git push origin :tags/v1.0 删除远程标签
+git tag -d v1.0 删除本地标签
+
+
+设置用户信息 
+	添加 --global 为全局设置，不添加为当前项目设置
+git config --global user.name 'your name'
+git config --global user.email 'email'
+
+------------------------
+TODO：服务器搭建
